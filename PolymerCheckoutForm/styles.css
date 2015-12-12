@@ -9,6 +9,7 @@ body {
   user-select: none;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-touch-callout: none;
+  padding: 24px;
 }
 
 section {
@@ -56,4 +57,11 @@ paper-tabs {
 
 paper-tabs paper-tab.iron-selected {
   color: #ffff8d;
+}
+
+.card {
+  background: #FFFFFF;
+  max-width: 400px;
+  padding: 24px;
+  margin: 0 auto;
 }

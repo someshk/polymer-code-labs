@@ -1,0 +1,49 @@
+<link rel="import" href="bower_components/polymer/poplymer.html">
+<link rel="import" href="bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="bower_components/iron-form/iron-form.html">
+<link rel="import" href="bower_components/paper-input/paper-input.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+<link rel="import" href="bower_components/gold-cc-input/gold-cc-input.html">
+<link rel="import" href="bower_components/gold-cc-cvc-input/gold-cc-cvc-input.html">
+<link rel="import" href="bower_components/gold-cc-expiration-input/gold-cc-expiration-input.html">
+
+<dom-module id="checkout-form">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      
+      .form-title {
+        margin-bottom: 20px;
+      }
+      
+      .avatar {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #3367D6;
+        margin-right: 20px;
+      }
+      
+      .company {
+        color: #3367D6;
+        font-size: 20px;
+        font-weight: 200;
+      }
+      
+    </style>
+    <div class="horizontal layout center form-title">
+      <div class="avatar" item-icon></div>
+      <div class="flex company">No Hunger Co.</div>
+    </div>
+  </template>
+  
+  <script>
+    Polymer({
+      is: 'checkout-form'
+    });
+  </script>
+</dom-module>
