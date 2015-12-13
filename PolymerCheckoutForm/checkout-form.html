@@ -4,6 +4,7 @@
 <link rel="import" href="bower_components/paper-input/paper-input.html">
 <link rel="import" href="bower_components/paper-button/paper-button.html">
 <link rel="import" href="bower_components/gold-cc-input/gold-cc-input.html">
+<link rel="import" href="bower_components/gold-cc-email/gold-email-input.html">
 <link rel="import" href="bower_components/gold-cc-cvc-input/gold-cc-cvc-input.html">
 <link rel="import" href="bower_components/gold-cc-expiration-input/gold-cc-expiration-input.html">
 
@@ -34,16 +35,48 @@
         font-weight: 200;
       }
       
+      gold-cc-expiration-input {
+        width: 50%;
+        margin-right: 20px;
+      }
+      
+      paper-buton {
+        background-color: #4285F4;
+        color: #fff;
+        margin-top: 50px;
+        width: 100%;
+      }
     </style>
     <div class="horizontal layout center form-title">
       <div class="avatar" item-icon></div>
       <div class="flex company">No Hunger Co.</div>
     </div>
+    <form is="iron-form" id="form" method="post" action="/checkout">
+      <paper-input name="name" label="Name on card" required autocomplete="cc-name"></paper-input>
+      <gold-cc-input name="cc-number" required auto-validate card-type="{{typeOfCard}}"></gold-cc-input>
+      <div class="horizontal layout">
+        <gold-cc-expiration-input name="cc-expiration" required auto-validate label="Expiration"></gold-cc-expiration-input>
+        <gold-cc-cvc-input name="cc-cvc" required auto-validate card-type="[[typeOfCard]]"></gold-cc-cvc-input>
+      </div>
+      <paper-button on-click="_submit">Pay</paper-button>
+    </form>
   </template>
   
   <script>
     Polymer({
-      is: 'checkout-form'
+      is: 'checkout-form',
+      
+      listeners: {
+        'form.iron-form-summit': '_handleFormSubmit'
+      },
+      
+      _submit: function() {
+        this.$.form.submit();
+      },
+      
+      _handleFormSubmit: function() {
+        console.log('Form submitted successfully!');
+      }
     });
   </script>
 </dom-module>
